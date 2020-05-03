@@ -1,0 +1,13 @@
+<div class="container-fluid">
+<h1 align="center" class="pd_align1">Welcome To <%= @user.username %>'s Page</h1>
+
+<div class="row justify-content-center align-items-center mb-4">
+  <%= gravatar_for @user, size: 120 %>
+</div>
+<h4 align="center" class="pd_align1"><%= @user.username%>'s Articles</h4>
+<div class="container-fluid mb-5">
+<div class="card-deck">
+  <%= render 'articles/ArticleList', obj: @user.articles %>
+  </div>
+</div>
+</div>

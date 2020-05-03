@@ -1,0 +1,56 @@
+
+<div class="container" >
+
+
+<% if @article.errors.any? %>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card bg-danger text-white crd_stl">
+      <div class="card-body">
+        <h4 class="card-title">
+          <%= pluralize(@article.errors.count, "Error")%>
+          Occurred:
+        </h4>
+        <div class="card-text">
+          <ul>
+          <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+      </div>
+      </div>
+      </div>
+  </div>
+</div>
+  <% end %>
+
+  <!-- <div class="col-md-12"> model: @article, class: "form-horizantal" -->
+    <%= form_for @article  do |f| %>
+    <div class="form-group row">
+    <div class="control-label col-sm-2 text-right lbl_font">
+      <%= f.label :title %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.text_field :title, class: 'form-control', placeholder: "Title Of Article", autofocus: true %>
+    </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="control-label col-sm-2 text-right lbl_font">
+        <%= f.label :description %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_area :description, :rows => 10, class:"form-control", placeholder:"Body Of Article" %>
+      </div>
+    </div>
+    <div class="form-group row d-flex justify-content-center">
+      <div class="col-sm-10 col-sm-offset-2" align="center">
+        <%= f.submit class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+    <% end %>
+  <!-- </div> -->
+</div>
+<div class="col-xs-4 col-xs-offset-4 pd_align" align="center">
+  [<%= link_to "Cancel And Return Article Listing", articles_path%>]
+</div>

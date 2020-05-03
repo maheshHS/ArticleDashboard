@@ -1,0 +1,20 @@
+<h1 align="center" class="pd_align1">Showing The Selected Article</h1>
+
+
+
+<!-- <h2 align="center">
+
+</h2> -->
+<div class="card bg-light text-dark col-md-8 offset-md-2 shadow-lg mb-5">
+  <h4 align="center" class= " mx-auto pt-3 display-4 card_title"><stong><%= @article.title %><strong></h4>
+    <hr>
+    <div class="desc-content">
+      <%= simple_format(@article.description) %>
+    </div>
+    <div class="article-actions">
+      <%= link_to "Edit This Article", edit_article_path(@article), class: "btn btn-xs btn-primary mr-3 ml-3"%>
+      <%= link_to "Delete This Article", article_path(@article), method: :delete, class: 'btn btn-xs btn-danger mr-3',
+                                          data:{confirm:"Are you sure?"}%>
+      <%= link_to "View All Articles", articles_path, class: "btn btn-xs btn-success mr-3" %>
+    </div>
+</div>
